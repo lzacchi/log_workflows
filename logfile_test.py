@@ -25,8 +25,8 @@ logger.addHandler(stdout_handler)
 
 def log_file() -> None:
     count = 0
+    sleep(1)
     while True:
-        sleep(1)
         logger.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S - ") +
                     "this is log number %d", count)
 
