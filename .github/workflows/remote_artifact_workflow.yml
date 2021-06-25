@@ -27,7 +27,7 @@ jobs:
       run: mkdir -p ${{ github.workspace }}/Artifacts
 
     - name: Copy Log Archive folder
-      run: cp 'log_archive/' '${{ github.workspace }}/Artifacts/log_archive'
+      run: cp -r 'log_archive/' '${{ github.workspace }}/Artifacts/log_archive'
 
     - name: Publish Artifact
       uses: actions/upload-artifact@v2
