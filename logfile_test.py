@@ -7,7 +7,9 @@ from time import sleep
 
 compression = zipfile.ZIP_DEFLATED
 
-filename = datetime.now().strftime("%Y-%m-%d_%H:%M:%S") + '.log'
+# filename = datetime.now().strftime("%Y-%m-%d_%H:%M:%S") + '.log'
+filename = test_file.log
+
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -21,19 +23,19 @@ logger.addHandler(stdout_handler)
 # logging.basicConfig(format='%(levelname)s:%(message)s', filename=filename, level=logging.INFO)
 
 
-def log_file():
-    count = 0
+def log_file() -> None:
+    # count = 0
     while True:
         logger.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S - ") +
                     "this is log number %d", count)
 
-        if count > 0 and count % 30 == 0:
-            f = open(filename, 'r+')
-            f.truncate(0)
-            zipObj = zipfile.ZipFile('log_archive/' + datetime.now().strftime("%Y-%m-%d_%H:%M:%S") + '.zip', 'w')
-            zipObj.write(filename)
-            zipObj.close
-        count += 1
+        # if count > 0 and count % 30 == 0:
+        #     f = open(filename, 'r+')
+        #     f.truncate(0)
+        #     zipObj = zipfile.ZipFile('log_archive/' + datetime.now().strftime("%Y-%m-%d_%H:%M:%S") + '.zip', 'w')
+        #     zipObj.write(filename)
+        #     zipObj.close
+        # count += 1
         sleep(1)
 
 

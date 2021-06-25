@@ -31,6 +31,6 @@ jobs:
       run: python3 logfile_test.py
     - name: Archive Log Files as Artifacts
       uses: actions/upload-artifact@v2
-        with:
-          name: log_archive
-          path: log_archive/
+      with:
+        name: log_archive
+        path: log_archive/
