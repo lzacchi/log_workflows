@@ -23,5 +23,5 @@ jobs:
     - name: Archive Log Files as Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: test-file
-        path: test_file.log
+        name: log_archive
+        path: log_archive/
