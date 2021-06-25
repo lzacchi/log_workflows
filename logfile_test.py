@@ -41,7 +41,7 @@ def log_file() -> None:
 
 log_process = Process(target=log_file, name="Process_inc_forever")
 log_process.start()
-log_process.join(timeout=120)
+log_process.join(timeout=30)
 log_process.terminate()
 
 if log_process.exitcode is None:
