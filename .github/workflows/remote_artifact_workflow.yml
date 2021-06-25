@@ -17,11 +17,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Executes python script that generates log file
+    - name: Prepare log_archive folder
+      run: mkdir log_archive
+
     - name: Execute Logging Script
       run: python3 logfile_test.py
 
-    - name: Archive Log Files as Artifacts
+    - name: Create Artifact Folder
+      run: New-Item -Path '${{ github.workspace }}' -Name "Artifacts" -ItemType "directory"
+
+    - name: Copy Log Archive folder
+      run: cp 'log_archive/' '${{ github.workspace }}/Artifacts/log_archive'
+
+    - name: Publish Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: log_archive
-        path: log_archive/*
+        path: ${{ github.workspace }}/Artifacts
+        name: ${{ github.run_number }}
