@@ -1,7 +1,7 @@
 name: Remote execution via SSH
 
 on:
-  workflow-dispatch:
+  workflow_dispatch:
 
 jobs:
   run-ssh:
