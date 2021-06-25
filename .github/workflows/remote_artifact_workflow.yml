@@ -24,7 +24,7 @@ jobs:
       run: python3 logfile_test.py
 
     - name: Create Artifact Folder
-      run: New-Item -Path '${{ github.workspace }}' -Name "Artifacts" -ItemType "directory"
+      run: mkdir -p ${{ github.workspace }}/Artifacts
 
     - name: Copy Log Archive folder
       run: cp 'log_archive/' '${{ github.workspace }}/Artifacts/log_archive'
