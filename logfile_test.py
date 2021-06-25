@@ -33,7 +33,7 @@ def log_file() -> None:
         if count > 0 and count % 30 == 0:
             f = open(filename, 'r+')
             f.truncate(0)
-            zipObj = zipfile.ZipFile('log_archive/' + datetime.now().strftime("%Y-%m-%d_%H:%M:%S") + '.zip', 'w')
+            zipObj = zipfile.ZipFile('log_archive/' + datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '.zip', 'w')
             zipObj.write(filename)
             zipObj.close
         count += 1
