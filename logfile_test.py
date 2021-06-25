@@ -8,7 +8,7 @@ from time import sleep
 compression = zipfile.ZIP_DEFLATED
 
 # filename = datetime.now().strftime("%Y-%m-%d_%H:%M:%S") + '.log'
-filename = 'log_archive/test_file.log'
+filename = 'test_file.log'
 
 
 logger = logging.getLogger()
