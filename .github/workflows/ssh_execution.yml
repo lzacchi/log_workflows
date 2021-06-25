@@ -1,0 +1,18 @@
+name: Remote execution via SSH
+
+on:
+  workflow-dispatch:
+
+jobs:
+  run-ssh:
+    name: Run SSH Commands
+    runs-on: ubuntu-latest
+    steps:
+    - name: Executing Log script via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: python ~/Projects/SpaceLab/log_workflows/logfile_test.py
