@@ -1,17 +1,18 @@
-name: Remote execution via SSH
+name: Command via SSH
 
-on:
-  workflow_dispatch:
+on: push
 
 jobs:
-  run-ssh:
-    name: Run SSH Commands
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Executing Log script via SSH
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        script: python ~/Projects/SpaceLab/log_workflows/logfile_test.py
+      - name: ls -a via OPEN SSH Private Key
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: python ~/Projects/SpaceLab/log_workflows/logfile_test.py
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+        env:
+          CI: true
