@@ -1,6 +1,6 @@
 name: Command via SSH
 
-on: push
+on: workflow_dispatch
 
 jobs:
   build:
@@ -14,5 +14,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
         env:
           CI: true
